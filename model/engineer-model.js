@@ -15,4 +15,6 @@ const engineerSchema = new mongoose.Schema({
 	surname: String,
 })
 
-module.exports = engineerSchema
+const engineer = mongoose.model('engineer', engineerSchema)
+
+module.exports = engineer
