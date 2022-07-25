@@ -12,12 +12,12 @@ dotenv.config()
 app.use(cors())
 app.use(express.json())
 
+// env variables
 const USERNAME = process.env.DB_USERNAME
 const PASSWORD = process.env.DB_PASSWORD
 
 Connection(USERNAME, PASSWORD)
 
-// get route
 app.get('/', (req, res) => {
 	res.send('Welcome to Neighbour Home Serverz')
 })
