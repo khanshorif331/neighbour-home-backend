@@ -17,7 +17,6 @@ const PASSWORD = process.env.DB_PASSWORD
 
 Connection(USERNAME, PASSWORD)
 
-// get route
 app.get('/', (req, res) => {
 	res.send('Welcome to Neighbour Home Serverz')
 })
