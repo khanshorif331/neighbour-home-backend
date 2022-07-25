@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 const Connection = async (username, password) => {
 	const URL = `mongodb+srv://${username}:${password}@endgame.3bema.mongodb.net/?retryWrites=true&w=majority`
@@ -12,3 +12,5 @@ const Connection = async (username, password) => {
 		console.log('Error while connecting to Database', error.message)
 	}
 }
+
+module.exports = Connection
