@@ -39,6 +39,24 @@ const singleConstructor = async (req, res) => {
 	}
 }
 
-module.exports = { insertConstructor, getAllConstructor, singleConstructor }
+// deleting single constructor data by id
+const deleteConstructor = async (req, res) => {
+	try {
+		const id = req.params.id
+		await Engineer.deleteOne({ _id: id })
+		res.status(200).json({
+			message: 'Constructor data was deleted successfully',
+		})
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
+module.exports = {
+	insertConstructor,
+	getAllConstructor,
+	singleConstructor,
+	deleteConstructor,
+}
 
 // module.exports = insertConstructor
