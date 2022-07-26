@@ -14,7 +14,6 @@ const engineerProfile = async (req, res) => {
 		// res.send(engineers)
 
 		const engineer = req.body
-		console.log(engineer, 'engineer')
 		const newEngineer = new Engineer(engineer)
 		await newEngineer.save()
 		res.status(200).json({
@@ -22,7 +21,7 @@ const engineerProfile = async (req, res) => {
 			engineer,
 		})
 	} catch (err) {
-		res.status(500).json({ message: err.message })
+		res.status(500).json({ message: 'There was a server side error!' })
 	}
 }
 
