@@ -1,4 +1,7 @@
 const express = require('express')
+
+// engineer controllers
+
 const {
 	engineerProfile,
 	insertMultipleEngineers,
@@ -8,6 +11,8 @@ const {
 	deleteEngineer,
 } = require('../controller/engineer-controller.js')
 
+// constuctor controllers
+
 const {
 	insertConstructor,
 	getAllConstructor,
@@ -15,9 +20,6 @@ const {
 	deleteConstructor,
 	updateConstructor,
 } = require('../controller/constructor-controller.js')
-
-// const insertConstructor = require('../controller/constructor-controller.js')
-// const insertConstructor = require('../controller/constructor-controller.js')
 
 const router = express.Router()
 
