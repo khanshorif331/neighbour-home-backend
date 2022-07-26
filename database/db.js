@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const Connection = async (username, password) => {
-	const URL = `mongodb+srv://${username}:${password}@endgame.3bema.mongodb.net/?retryWrites=true&w=majority`
+	const URL = `mongodb+srv://${username}:${password}@endgame.3bema.mongodb.net/neighbour-home`
 	try {
 		await mongoose.connect(URL, {
 			useUnifiedtopology: true,

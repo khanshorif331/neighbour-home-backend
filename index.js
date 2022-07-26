@@ -5,6 +5,7 @@ const dotenv = require('dotenv')
 const PORT = process.env.PORT || 5000
 
 const Connection = require('./database/db')
+const router = require('./routes/route')
 
 dotenv.config()
 
@@ -17,6 +18,8 @@ const USERNAME = process.env.DB_USERNAME
 const PASSWORD = process.env.DB_PASSWORD
 
 Connection(USERNAME, PASSWORD)
+
+app.use('/', router)
 
 app.get('/', (req, res) => {
 	res.send('Welcome to Neighbour Home Serverz')
