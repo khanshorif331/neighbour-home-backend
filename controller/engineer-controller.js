@@ -1,5 +1,6 @@
 const Engineer = require('../model/engineer-model.js')
 
+// posting a single engineer
 const engineerProfile = async (req, res) => {
 	try {
 		// const exist = await User.findone({ username: req.body.username })
@@ -25,4 +26,18 @@ const engineerProfile = async (req, res) => {
 	}
 }
 
-module.exports = engineerProfile
+const insertMultipleEngineers = async (req, res) => {
+	try {
+		const multipleEngineers = req.body
+		// const newEngineer = new Engineer(engineer)
+		await Engineer.insertMany(multipleEngineers)
+		// await newEngineer.save()
+		res.status(200).json({
+			message: 'Engineers posted successfully',
+		})
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
+module.exports = { engineerProfile, insertMultipleEngineers }
