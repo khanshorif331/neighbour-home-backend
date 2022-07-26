@@ -10,6 +10,6 @@ const router = express.Router()
 // engineers routes
 router.post('/engineer', engineerProfile)
 router.post('/engineer/all', insertMultipleEngineers)
-router.post('/engineer/:id', updateEngineer)
+router.put('/engineer/:id', updateEngineer)
 
 module.exports = router
