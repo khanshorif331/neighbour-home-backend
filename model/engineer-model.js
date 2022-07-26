@@ -15,7 +15,7 @@ const engineerSchema = new mongoose.Schema({
 	surname: {
 		type: String,
 		minLength: 3,
-		maxLength: 10,
+		maxLength: 30,
 	},
 	// name: {
 	// 	type: String,
@@ -34,3 +34,4 @@ const engineerSchema = new mongoose.Schema({
 const engineer = mongoose.model('engineer', engineerSchema)
 
 module.exports = engineer
+//
