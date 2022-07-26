@@ -18,7 +18,7 @@ const constructorSchema = new mongoose.Schema({
 	assignment: String,
 	discount: String,
 	price: {
-		type: String,
+		type: Number,
 		required: true,
 	},
 })
