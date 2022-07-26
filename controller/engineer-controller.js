@@ -54,14 +54,16 @@ const updateEngineer = async (req, res) => {
 			message: 'Engineer data was updated successfully',
 		})
 	} catch (err) {
-		res.status(500).json({ message: 'There was a server side error!' })
+		res.status(500).json({
+			message: 'Can not update because of a server side error!',
+		})
 	}
 }
 
 // getting all engineers data
 const getAllEngineers = async (req, res) => {
 	try {
-		const data = await Engineer.find({})
+		const data = await Engineer.find()
 		res.status(200).json(data)
 	} catch (err) {
 		res.status(500).json({ message: 'There was a server side error!' })

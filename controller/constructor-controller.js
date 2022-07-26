@@ -18,7 +18,7 @@ const insertConstructor = async (req, res) => {
 // getting all constructor data
 const getAllConstructor = async (req, res) => {
 	try {
-		const data = await Constructor.find({})
+		const data = await Constructor.find()
 		res.status(200).json(data)
 	} catch (err) {
 		res.status(500).json({ message: 'There was a server side error!' })
