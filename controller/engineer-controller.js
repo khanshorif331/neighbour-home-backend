@@ -70,6 +70,7 @@ const getAllEngineers = async (req, res) => {
 		res.status(500).json({ message: 'There was a server side error!' })
 	}
 }
+
 // getting single engineer data by id
 const singleEngineer = async (req, res) => {
 	try {
@@ -81,8 +82,8 @@ const singleEngineer = async (req, res) => {
 		res.status(500).json({ message: 'There was a server side error!' })
 	}
 }
-//
-// getting single engineer data by id
+
+// deleting single engineer data by id
 const deleteEngineer = async (req, res) => {
 	try {
 		const id = req.params.id
