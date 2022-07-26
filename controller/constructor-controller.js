@@ -27,6 +27,18 @@ const getAllConstructor = async (req, res) => {
 	}
 }
 
-module.exports = { insertConstructor, getAllConstructor }
+// getting single constuctor data by id
+const singleConstructor = async (req, res) => {
+	try {
+		const id = req.params.id
+		// const data = await Engineer.find({ _id: id })
+		const data = await Constructor.findById(id)
+		res.status(200).json(data)
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
+module.exports = { insertConstructor, getAllConstructor, singleConstructor }
 
 // module.exports = insertConstructor
