@@ -1,4 +1,4 @@
-const Engineer = require('../model/engineer-model')
+const Engineer = require('../model/engineer-model.js')
 
 const engineerProfile = async (req, res) => {
 	try {
@@ -25,3 +25,5 @@ const engineerProfile = async (req, res) => {
 		res.status(500).json({ message: err.message })
 	}
 }
+
+module.exports = engineerProfile
