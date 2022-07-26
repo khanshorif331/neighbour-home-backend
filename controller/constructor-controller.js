@@ -26,4 +26,6 @@ const insertConstructor = async (req, res) => {
 	}
 }
 
-module.exports = { insertConstructor }
+module.exports = insertConstructor
+
+// module.exports = insertConstructor

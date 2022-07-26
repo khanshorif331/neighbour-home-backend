@@ -11,7 +11,7 @@ const constructorSchema = new mongoose.Schema({
 	duration: String,
 	assignment: String,
 	discount: String,
-	price: Number,
+	price: String,
 })
 
 const constructor = mongoose.model('constructor', constructorSchema)
