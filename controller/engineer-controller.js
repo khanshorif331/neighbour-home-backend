@@ -38,6 +38,8 @@ const insertMultipleEngineers = async (req, res) => {
 		res.status(500).json({ message: 'There was a server side error!' })
 	}
 }
+
+// updating a single engineer $set needs to be update
 const updateEngineer = async (req, res) => {
 	try {
 		const id = req.params.id
@@ -57,4 +59,23 @@ const updateEngineer = async (req, res) => {
 	}
 }
 
-module.exports = { engineerProfile, insertMultipleEngineers, updateEngineer }
+// getting all engineers data
+const getAllEngineers = async (req, res) => {
+	try {
+		// const multipleEngineers = req.body
+		const data = await Engineer.find({})
+		res.status(200).json({
+			result: data,
+			message: 'Engineers were inserted successfully',
+		})
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
+module.exports = {
+	engineerProfile,
+	insertMultipleEngineers,
+	updateEngineer,
+	getAllEngineers,
+}
