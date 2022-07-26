@@ -43,12 +43,14 @@ const singleConstructor = async (req, res) => {
 const deleteConstructor = async (req, res) => {
 	try {
 		const id = req.params.id
-		await Engineer.deleteOne({ _id: id })
+		await Constructor.deleteOne({ _id: id })
 		res.status(200).json({
 			message: 'Constructor data was deleted successfully',
 		})
 	} catch (err) {
-		res.status(500).json({ message: 'There was a server side error!' })
+		res.status(500).json({
+			message: 'Could not delete because of a server side error!',
+		})
 	}
 }
 

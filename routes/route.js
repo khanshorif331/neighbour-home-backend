@@ -12,6 +12,7 @@ const {
 	insertConstructor,
 	getAllConstructor,
 	singleConstructor,
+	deleteConstructor,
 } = require('../controller/constructor-controller.js')
 
 // const insertConstructor = require('../controller/constructor-controller.js')
