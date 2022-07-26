@@ -6,12 +6,21 @@ const constructorSchema = new mongoose.Schema({
 		required: true,
 		minLength: 3,
 	},
-	type: String,
+	type: {
+		type: String,
+		required: true,
+	},
 	picture: String,
-	duration: String,
+	duration: {
+		type: String,
+		required: true,
+	},
 	assignment: String,
 	discount: String,
-	price: String,
+	price: {
+		type: String,
+		required: true,
+	},
 })
 
 const constructor = mongoose.model('constructor', constructorSchema)
