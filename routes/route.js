@@ -11,6 +11,7 @@ const {
 const {
 	insertConstructor,
 	getAllConstructor,
+	singleConstructor,
 } = require('../controller/constructor-controller.js')
 
 // const insertConstructor = require('../controller/constructor-controller.js')
@@ -29,5 +30,6 @@ router.delete('/engineer/:id', deleteEngineer)
 // constructors routes
 router.post('/constructor', insertConstructor)
 router.get('/constructor', getAllConstructor)
+router.get('/constructor/:id', singleConstructor)
 
 module.exports = router
