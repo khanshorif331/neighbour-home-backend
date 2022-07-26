@@ -38,5 +38,23 @@ const insertMultipleEngineers = async (req, res) => {
 		res.status(500).json({ message: 'There was a server side error!' })
 	}
 }
+const updateEngineer = async (req, res) => {
+	try {
+		const id = req.params.id
+		await Engineer.updateOne(
+			{ _id: id },
+			{
+				$set: {
+					name: 'Shoriful Islam',
+				},
+			}
+		)
+		res.status(200).json({
+			message: 'Engineer data was updated successfully',
+		})
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
 
-module.exports = { engineerProfile, insertMultipleEngineers }
+module.exports = { engineerProfile, insertMultipleEngineers, updateEngineer }
