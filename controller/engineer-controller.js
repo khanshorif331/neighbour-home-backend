@@ -81,7 +81,7 @@ const singleEngineer = async (req, res) => {
 		res.status(500).json({ message: 'There was a server side error!' })
 	}
 }
-
+//
 // getting single engineer data by id
 const deleteEngineer = async (req, res) => {
 	try {
