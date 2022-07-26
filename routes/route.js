@@ -31,5 +31,6 @@ router.delete('/engineer/:id', deleteEngineer)
 router.post('/constructor', insertConstructor)
 router.get('/constructor', getAllConstructor)
 router.get('/constructor/:id', singleConstructor)
+router.delete('/constructor/:id', deleteConstructor)
 
 module.exports = router
