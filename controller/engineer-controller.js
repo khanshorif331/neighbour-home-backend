@@ -83,7 +83,7 @@ const singleEngineer = async (req, res) => {
 	}
 }
 
-// deleting single engineer data by id
+// deleting single constructor data by id
 const deleteEngineer = async (req, res) => {
 	try {
 		const id = req.params.id
