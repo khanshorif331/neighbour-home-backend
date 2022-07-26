@@ -15,7 +15,7 @@ const engineerSchema = new mongoose.Schema({
 	surname: {
 		type: String,
 		minLength: 3,
-		maxLength: 10,
+		maxLength: 30,
 	},
 	// name: {
 	// 	type: String,
