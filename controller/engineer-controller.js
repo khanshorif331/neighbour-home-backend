@@ -68,6 +68,7 @@ const getAllEngineers = async (req, res) => {
 			result: data,
 			message: 'Engineers were inserted successfully',
 		})
+		console.log(data)
 	} catch (err) {
 		res.status(500).json({ message: 'There was a server side error!' })
 	}

@@ -3,6 +3,7 @@ const {
 	engineerProfile,
 	insertMultipleEngineers,
 	updateEngineer,
+	getAllEngineers,
 } = require('../controller/engineer-controller.js')
 
 const router = express.Router()
@@ -11,5 +12,6 @@ const router = express.Router()
 router.post('/engineer', engineerProfile)
 router.post('/engineer/all', insertMultipleEngineers)
 router.put('/engineer/:id', updateEngineer)
+router.get('/engineers', getAllEngineers)
 
 module.exports = router
