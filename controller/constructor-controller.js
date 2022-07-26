@@ -19,9 +19,7 @@ const insertConstructor = async (req, res) => {
 const getAllConstructor = async (req, res) => {
 	try {
 		const data = await Constructor.find({})
-		res.status(200).json({
-			result: data,
-		})
+		res.status(200).json(data)
 	} catch (err) {
 		res.status(500).json({ message: 'There was a server side error!' })
 	}
@@ -64,9 +62,7 @@ const updateConstructor = async (req, res) => {
 		await Constructor.updateOne(
 			{ _id: id },
 			{
-				$set: {
-					data,
-				},
+				$set: data,
 			}
 		)
 		res.status(200).json({
@@ -86,5 +82,3 @@ module.exports = {
 	deleteConstructor,
 	updateConstructor,
 }
-
-// module.exports = insertConstructor
