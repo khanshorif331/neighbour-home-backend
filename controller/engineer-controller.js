@@ -26,14 +26,13 @@ const engineerProfile = async (req, res) => {
 	}
 }
 
+// posting multiple engineers data
 const insertMultipleEngineers = async (req, res) => {
 	try {
 		const multipleEngineers = req.body
-		// const newEngineer = new Engineer(engineer)
 		await Engineer.insertMany(multipleEngineers)
-		// await newEngineer.save()
 		res.status(200).json({
-			message: 'Engineers posted successfully',
+			message: 'Engineers were inserted successfully',
 		})
 	} catch (err) {
 		res.status(500).json({ message: 'There was a server side error!' })
