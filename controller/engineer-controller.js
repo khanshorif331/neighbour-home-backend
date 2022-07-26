@@ -70,7 +70,7 @@ const getAllEngineers = async (req, res) => {
 		res.status(500).json({ message: 'There was a server side error!' })
 	}
 }
-// getting all engineers data
+// getting single engineer data by id
 const singleEngineer = async (req, res) => {
 	try {
 		const id = req.params.id
@@ -82,10 +82,25 @@ const singleEngineer = async (req, res) => {
 	}
 }
 
+// getting single engineer data by id
+const deleteEngineer = async (req, res) => {
+	try {
+		const id = req.params.id
+		// const data = await Engineer.find({ _id: id })
+		await Engineer.deleteOne({ _id: id })
+		res.status(200).json({
+			message: 'Engineer data was deleted successfully',
+		})
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
 module.exports = {
 	engineerProfile,
 	insertMultipleEngineers,
 	updateEngineer,
 	getAllEngineers,
 	singleEngineer,
+	deleteEngineer,
 }

@@ -13,7 +13,7 @@ const router = express.Router()
 router.post('/engineer', engineerProfile)
 router.post('/engineer/all', insertMultipleEngineers)
 router.put('/engineer/:id', updateEngineer)
-router.get('/engineers', getAllEngineers)
+router.get('/engineer', getAllEngineers)
 router.get('/engineer/:id', singleEngineer)
 
 module.exports = router
