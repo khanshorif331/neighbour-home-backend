@@ -19,7 +19,6 @@ const singleReview = async (req, res) => {
 		await newReview.save()
 		res.status(200).json({
 			message: 'Review saved successfully',
-			review,
 		})
 	} catch (err) {
 		res.status(500).json({ message: 'There was a server side error!' })
