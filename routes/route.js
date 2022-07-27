@@ -26,6 +26,7 @@ const {
 	singleReview,
 	getAllReview,
 	updateReview,
+	deleteReview,
 } = require('../controller/review-controller.js')
 
 const router = express.Router()
@@ -49,5 +50,6 @@ router.put('/constructor/:id', updateConstructor)
 router.post('/review', singleReview)
 router.get('/review', getAllReview)
 router.put('/review/:id', updateReview)
+router.delete('/review/:id', deleteReview)
 
 module.exports = router
