@@ -41,5 +41,6 @@ router.delete('/constructor/:id', deleteConstructor)
 router.put('/constructor/:id', updateConstructor)
 
 // reviews routes
+router.post('/review', singleReview)
 
 module.exports = router
