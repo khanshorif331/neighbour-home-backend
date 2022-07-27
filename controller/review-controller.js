@@ -24,4 +24,25 @@ const getAllReview = async (req, res) => {
 	}
 }
 
-module.exports = { singleReview, getAllReview }
+// updating a single engineer $set needs to be update
+const updateReview = async (req, res) => {
+	try {
+		const id = req.params.id
+		const engineer = req.body
+		await Review.updateOne(
+			{ _id: id },
+			{
+				$set: engineer,
+			}
+		)
+		res.status(200).json({
+			message: 'Review data was updated successfully',
+		})
+	} catch (err) {
+		res.status(500).json({
+			message: 'Can not update because of a server side error!',
+		})
+	}
+}
+
+module.exports = { singleReview, getAllReview, updateReview }
