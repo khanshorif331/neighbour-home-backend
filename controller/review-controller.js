@@ -28,11 +28,11 @@ const getAllReview = async (req, res) => {
 const updateReview = async (req, res) => {
 	try {
 		const id = req.params.id
-		const engineer = req.body
+		const review = req.body
 		await Review.updateOne(
 			{ _id: id },
 			{
-				$set: engineer,
+				$set: review,
 			}
 		)
 		res.status(200).json({
