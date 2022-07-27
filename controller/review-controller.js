@@ -14,4 +14,14 @@ const singleReview = async (req, res) => {
 	}
 }
 
-module.exports = singleReview
+// getting all review data
+const getAllReview = async (req, res) => {
+	try {
+		const data = await Review.find()
+		res.status(200).json(data)
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
+module.exports = { singleReview, getAllReview }
