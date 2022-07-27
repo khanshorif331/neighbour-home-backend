@@ -48,6 +48,6 @@ router.put('/constructor/:id', updateConstructor)
 // reviews routes
 router.post('/review', singleReview)
 router.get('/review', getAllReview)
-router.put('/review', updateReview)
+router.put('/review/:id', updateReview)
 
 module.exports = router
