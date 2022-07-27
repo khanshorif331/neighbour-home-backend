@@ -21,9 +21,11 @@ const {
 	updateConstructor,
 } = require('../controller/constructor-controller.js')
 
+// review contrllers
 const {
 	singleReview,
 	getAllReview,
+	updateReview,
 } = require('../controller/review-controller.js')
 
 const router = express.Router()
@@ -46,5 +48,6 @@ router.put('/constructor/:id', updateConstructor)
 // reviews routes
 router.post('/review', singleReview)
 router.get('/review', getAllReview)
+router.put('/review', updateReview)
 
 module.exports = router
