@@ -1,22 +1,20 @@
 const mongoose = require('mongoose')
 
 const reviewSchema = new mongoose.Schema({
-	// name: {
-	// 	type: String,
-	// 	required: true,
-	// 	minLength: 3,
-	// 	maxLength: 20,
-	// },
-	// picture: String,
-	// gender: {
-	// 	type: String,
-	// 	enum: ['male', 'female'],
-	// },
-	// surname: {
-	// 	type: String,
-	// 	minLength: 3,
-	// 	maxLength: 30,
-	// },
+	name: {
+		type: String,
+		required: true,
+	},
+	picture: String,
+	stars: {
+		type: String,
+		required: true,
+	},
+	reviewTxt: {
+		type: String,
+		minLength: 5,
+		maxLength: 500,
+	},
 })
 
 const review = mongoose.model('review', reviewSchema)
