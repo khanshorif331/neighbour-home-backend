@@ -45,4 +45,18 @@ const updateReview = async (req, res) => {
 	}
 }
 
-module.exports = { singleReview, getAllReview, updateReview }
+// deleting single review data by id
+const deleteReview = async (req, res) => {
+	try {
+		const id = req.params.id
+		// const data = await Engineer.find({ _id: id })
+		await Review.deleteOne({ _id: id })
+		res.status(200).json({
+			message: 'Review data was deleted successfully',
+		})
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
+module.exports = { singleReview, getAllReview, updateReview, deleteReview }
