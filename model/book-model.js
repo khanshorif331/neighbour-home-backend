@@ -5,7 +5,7 @@ const bookSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 		minlength: 5,
-		// maxlength: 255,
+		maxlength: 255,
 	},
 	picture: String,
 	pdf: {
@@ -16,7 +16,7 @@ const bookSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 		minlength: 10,
-		// maxlength: 2000,
+		maxlength: 2000,
 	},
 })
 
