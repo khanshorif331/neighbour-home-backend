@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const reviewSchema = new mongoose.Schema({
+const bookSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		required: true,
@@ -18,6 +18,6 @@ const reviewSchema = new mongoose.Schema({
 	},
 })
 
-const review = mongoose.model('review', reviewSchema)
+const book = mongoose.model('book', bookSchema)
 
-module.exports = review
+module.exports = book
