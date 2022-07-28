@@ -41,6 +41,7 @@ const {
 	postUser,
 	getAllUser,
 	singleUser,
+	updateUser,
 } = require('../controller/user-controller.js')
 
 const router = express.Router()
@@ -77,5 +78,6 @@ router.delete('/book/:id', deleteBook)
 router.post('/user', postUser)
 router.get('/user', getAllUser)
 router.get('/user/:id', singleUser)
+router.put('/user/:id', updateUser)
 
 module.exports = router
