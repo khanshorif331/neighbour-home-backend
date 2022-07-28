@@ -37,7 +37,11 @@ const {
 } = require('../controller/book-controller.js')
 
 // user controllers
-const { postUser, getAllUser } = require('../controller/user-controller.js')
+const {
+	postUser,
+	getAllUser,
+	singleUser,
+} = require('../controller/user-controller.js')
 
 const router = express.Router()
 
@@ -72,5 +76,6 @@ router.delete('/book/:id', deleteBook)
 // user routes
 router.post('/user', postUser)
 router.get('/user', getAllUser)
+router.get('/user/:id', singleUser)
 
 module.exports = router
