@@ -5,7 +5,10 @@ const postUser = async (req, res) => {
 	try {
 		const user = req.body
 		const newUser = new User(user)
-		await newUser.save()
+		console.log(newUser)
+
+		const data = await newUser.save()
+		console.log(data, 'data')
 		res.status(200).json({
 			message: 'User data saved successfully',
 		})
