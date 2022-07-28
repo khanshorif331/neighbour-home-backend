@@ -56,4 +56,7 @@ router.get('/review', getAllReview)
 router.put('/review/:id', updateReview)
 router.delete('/review/:id', deleteReview)
 
+// book routes
+router.post('/book', singleBookPost)
+
 module.exports = router
