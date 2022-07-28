@@ -7,7 +7,7 @@ const reviewSchema = new mongoose.Schema({
 	},
 	picture: String,
 	stars: {
-		type: String,
+		type: Number,
 		required: true,
 	},
 	reviewTxt: {
