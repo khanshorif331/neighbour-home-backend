@@ -21,6 +21,7 @@ const constructorSchema = new mongoose.Schema({
 		type: Number,
 		required: true,
 	},
+	description: String,
 })
 
 const constructor = mongoose.model('constructor', constructorSchema)
