@@ -26,4 +26,25 @@ const getAllBook = async (req, res) => {
 	}
 }
 
-module.exports = { singleBookPost, getAllBook }
+// updating a single book data $set needs to be update
+const updateBook = async (req, res) => {
+	try {
+		const id = req.params.id
+		const book = req.body
+		await Book.updateOne(
+			{ _id: id },
+			{
+				$set: book,
+			}
+		)
+		res.status(200).json({
+			message: 'Book data was updated successfully',
+		})
+	} catch (err) {
+		res.status(500).json({
+			message: 'Can not update because of a server side error!',
+		})
+	}
+}
+
+module.exports = { singleBookPost, getAllBook, updateBook }
