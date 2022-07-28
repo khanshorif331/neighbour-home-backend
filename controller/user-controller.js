@@ -27,4 +27,15 @@ const getAllUser = async (req, res) => {
 	}
 }
 
-module.exports = { postUser, getAllUser }
+// getting single user data by id
+const singleUser = async (req, res) => {
+	try {
+		const id = req.params.id
+		const data = await Book.findById(id)
+		res.status(200).json(data)
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
+module.exports = { postUser, getAllUser, singleUser }

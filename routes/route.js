@@ -36,6 +36,7 @@ const {
 	deleteBook,
 } = require('../controller/book-controller.js')
 
+// user controllers
 const { postUser, getAllUser } = require('../controller/user-controller.js')
 
 const router = express.Router()
