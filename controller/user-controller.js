@@ -38,4 +38,25 @@ const singleUser = async (req, res) => {
 	}
 }
 
-module.exports = { postUser, getAllUser, singleUser }
+// updating a single user data $set needs to be update
+const updateUser = async (req, res) => {
+	try {
+		const id = req.params.id
+		const user = req.body
+		await User.updateOne(
+			{ _id: id },
+			{
+				$set: user,
+			}
+		)
+		res.status(200).json({
+			message: 'User data was updated successfully',
+		})
+	} catch (err) {
+		res.status(500).json({
+			message: 'Can not update because of a server side error!',
+		})
+	}
+}
+
+module.exports = { postUser, getAllUser, singleUser, updateUser }
