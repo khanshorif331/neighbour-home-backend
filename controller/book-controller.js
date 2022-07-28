@@ -26,6 +26,17 @@ const getAllBook = async (req, res) => {
 	}
 }
 
+// getting single book data by id
+const singleBook = async (req, res) => {
+	try {
+		const id = req.params.id
+		const data = await Book.findById(id)
+		res.status(200).json(data)
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
 // updating a single book data $set needs to be update
 const updateBook = async (req, res) => {
 	try {
@@ -60,4 +71,10 @@ const deleteBook = async (req, res) => {
 	}
 }
 
-module.exports = { singleBookPost, getAllBook, updateBook, deleteBook }
+module.exports = {
+	singleBookPost,
+	getAllBook,
+	updateBook,
+	deleteBook,
+	singleBook,
+}
