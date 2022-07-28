@@ -44,11 +44,10 @@ const userSchema = new mongoose.Schema({
 	photo: String,
 	role: {
 		type: String,
-		// enum: ['engineer,worker,buyer,admin'],
+		enum: ['engineer', 'worker', 'buyer', 'admin'],
 	},
 })
 
 const user = mongoose.model('user', userSchema)
-// console.log(user)
 
 module.exports = user
