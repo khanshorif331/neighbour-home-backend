@@ -47,4 +47,17 @@ const updateBook = async (req, res) => {
 	}
 }
 
-module.exports = { singleBookPost, getAllBook, updateBook }
+// deleting single book data by id
+const deleteBook = async (req, res) => {
+	try {
+		const id = req.params.id
+		await Book.deleteOne({ _id: id })
+		res.status(200).json({
+			message: 'Book data was deleted successfully',
+		})
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
+module.exports = { singleBookPost, getAllBook, updateBook, deleteBook }
