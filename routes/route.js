@@ -35,6 +35,7 @@ const {
 	singleBookPost,
 	getAllBook,
 	updateBook,
+	deleteBook,
 } = require('../controller/book-controller.js')
 
 const router = express.Router()
@@ -64,5 +65,6 @@ router.delete('/review/:id', deleteReview)
 router.post('/book', singleBookPost)
 router.get('/book', getAllBook)
 router.put('/book/:id', updateBook)
+router.delete('/book/:id', deleteBook)
 
 module.exports = router
