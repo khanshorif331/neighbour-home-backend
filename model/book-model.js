@@ -4,17 +4,19 @@ const bookSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		required: true,
+		minlength: 5,
+		maxlength: 255,
 	},
 	picture: String,
-	stars: {
+	pdf: {
 		type: String,
 		required: true,
 	},
-	reviewTxt: {
+	description: {
 		type: String,
 		required: true,
-		minLength: 5,
-		maxLength: 500,
+		minlength: 10,
+		maxlength: 2000,
 	},
 })
 
