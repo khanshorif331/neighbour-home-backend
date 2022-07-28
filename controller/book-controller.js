@@ -4,11 +4,8 @@ const Book = require('../model/book-model')
 const singleBookPost = async (req, res) => {
 	try {
 		const book = req.body
-
 		const newBook = new Book(book)
-		console.log(newBook, 'newBook')
-		const data = await newBook.save()
-		console.log(data, 'data')
+		await newBook.save()
 		res.status(200).json({
 			message: 'Book data saved successfully',
 		})
@@ -19,4 +16,14 @@ const singleBookPost = async (req, res) => {
 	}
 }
 
-module.exports = singleBookPost
+// getting all book data
+const getAllBook = async (req, res) => {
+	try {
+		const data = await Book.find()
+		res.status(200).json(data)
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
+module.exports = { singleBookPost, getAllBook }
