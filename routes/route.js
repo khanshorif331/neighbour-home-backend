@@ -1,7 +1,6 @@
 const express = require('express')
 
 // engineer controllers
-
 const {
 	engineerProfile,
 	insertMultipleEngineers,
@@ -12,7 +11,6 @@ const {
 } = require('../controller/engineer-controller.js')
 
 // constuctor controllers
-
 const {
 	insertConstructor,
 	getAllConstructor,
@@ -28,6 +26,15 @@ const {
 	updateReview,
 	deleteReview,
 } = require('../controller/review-controller.js')
+
+// book controllers
+const {
+	singleBookPost,
+	getAllBook,
+	singleBook,
+	updateBook,
+	deleteBook,
+} = require('../controller/book-controller.js')
 
 const router = express.Router()
 
@@ -51,5 +58,12 @@ router.post('/review', singleReview)
 router.get('/review', getAllReview)
 router.put('/review/:id', updateReview)
 router.delete('/review/:id', deleteReview)
+
+// book routes
+router.post('/book', singleBookPost)
+router.get('/book', getAllBook)
+router.get('/book/:id', singleBook)
+router.put('/book/:id', updateBook)
+router.delete('/book/:id', deleteBook)
 
 module.exports = router
