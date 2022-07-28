@@ -31,7 +31,10 @@ const {
 
 // book controllers
 
-const singleBookPost = require('../controller/book-controller.js')
+const {
+	singleBookPost,
+	getAllBook,
+} = require('../controller/book-controller.js')
 
 const router = express.Router()
 
@@ -58,5 +61,6 @@ router.delete('/review/:id', deleteReview)
 
 // book routes
 router.post('/book', singleBookPost)
+router.get('/book', getAllBook)
 
 module.exports = router
