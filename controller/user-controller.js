@@ -20,19 +20,16 @@ const User = require('../model/user-model.js')
 // posting user email
 const emailPost = async (req, res) => {
 	try {
-		console.log(req.body)
 		const exist = await User.findOne({ email: req.body.email })
-		console.log(exist, 'exist')
 		if (exist) {
 			return res.status(401).json({
 				message: 'Email already exists',
 				report: 'exist',
 			})
 		}
-		// const userEmail = req.body
 
-		const users = req.body
-		const newUser = new User(users)
+		const userEmail = req.body
+		const newUser = new User(userEmail)
 
 		await newUser.save()
 
@@ -122,7 +119,7 @@ const deleteUser = async (req, res) => {
 }
 
 module.exports = {
-	postUser,
+	// postUser,
 	getAllUser,
 	singleUser,
 	updateUser,
