@@ -17,7 +17,7 @@ const User = require('../model/user-model.js')
 // 	}
 // }
 
-// posting user email
+// posting user email from register
 const emailPost = async (req, res) => {
 	try {
 		const exist = await User.findOne({ email: req.body.email })
@@ -33,7 +33,6 @@ const emailPost = async (req, res) => {
 
 		await newUser.save()
 
-		// const user = await User.save(req.body)
 		res.send({
 			// user,
 			report: 'inserted',
@@ -69,24 +68,7 @@ const singleUser = async (req, res) => {
 // updating a single user data $set needs to be update
 const updateUser = async (req, res) => {
 	try {
-		// const id = req.params.id
 		const email = req.query.email
-		console.log(email)
-		// const user = req.body
-
-		// const exist = await User.findOne({ email: email })
-		// console.log(exist)
-		// if (exist) {
-		// 	// res.status(401).json({
-		// 	// 	message: 'Email already exists',
-		// 	// 	report: 'exist',
-		// 	// })
-		// 	const users = req.body
-		// 	const newUser = exist.save()
-
-		// 	// await newUser.save()
-		// }
-
 		const userData = req.body
 
 		await User.updateOne(
