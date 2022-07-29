@@ -43,6 +43,7 @@ const {
 	singleUser,
 	updateUser,
 	deleteUser,
+	emailPost,
 } = require('../controller/user-controller.js')
 
 const router = express.Router()
@@ -76,10 +77,11 @@ router.put('/book/:id', updateBook)
 router.delete('/book/:id', deleteBook)
 
 // user routes
-router.post('/user', postUser)
+// router.post('/user', postUser)
 router.get('/user', getAllUser)
 router.get('/user/:id', singleUser)
-router.put('/user/:id', updateUser)
+router.put('/user', updateUser)
 router.delete('/user/:id', deleteUser)
+router.post('/user', emailPost)
 
 module.exports = router
