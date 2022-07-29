@@ -1,18 +1,45 @@
 const User = require('../model/user-model.js')
 
 // posting a user data
-const postUser = async (req, res) => {
+// const postUser = async (req, res) => {
+// 	try {
+// 		const user = req.body
+// 		const newUser = new User(user)
+
+// 		await newUser.save()
+// 		res.status(200).json({
+// 			message: 'User data saved successfully',
+// 		})
+// 	} catch (err) {
+// 		res.status(500).json({
+// 			message: 'There was a server side error! from user posting',
+// 		})
+// 	}
+// }
+
+// posting user email from register
+const emailPost = async (req, res) => {
 	try {
-		const user = req.body
-		const newUser = new User(user)
+		const exist = await User.findOne({ email: req.body.email })
+		if (exist) {
+			return res.status(401).json({
+				message: 'Email already exists',
+				report: 'exist',
+			})
+		}
+
+		const userEmail = req.body
+		const newUser = new User(userEmail)
 
 		await newUser.save()
-		res.status(200).json({
-			message: 'User data saved successfully',
+
+		res.send({
+			// user,
+			report: 'inserted',
 		})
 	} catch (err) {
 		res.status(500).json({
-			message: 'There was a server side error! from user',
+			message: err.message,
 		})
 	}
 }
@@ -41,12 +68,13 @@ const singleUser = async (req, res) => {
 // updating a single user data $set needs to be update
 const updateUser = async (req, res) => {
 	try {
-		const id = req.params.id
-		const user = req.body
+		const email = req.query.email
+		const userData = req.body
+
 		await User.updateOne(
-			{ _id: id },
+			{ email: email },
 			{
-				$set: user,
+				$set: userData,
 			}
 		)
 		res.status(200).json({
@@ -54,7 +82,7 @@ const updateUser = async (req, res) => {
 		})
 	} catch (err) {
 		res.status(500).json({
-			message: 'Can not update because of a server side error!',
+			message: err.message,
 		})
 	}
 }
@@ -72,4 +100,11 @@ const deleteUser = async (req, res) => {
 	}
 }
 
-module.exports = { postUser, getAllUser, singleUser, updateUser, deleteUser }
+module.exports = {
+	// postUser,
+	getAllUser,
+	singleUser,
+	updateUser,
+	deleteUser,
+	emailPost,
+}
