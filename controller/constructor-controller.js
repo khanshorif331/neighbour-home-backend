@@ -66,10 +66,12 @@ const updateConstructor = async (req, res) => {
 			}
 		)
 		res.status(200).json({
+			success: true,
 			message: 'Constructor data was updated successfully',
 		})
 	} catch (err) {
 		res.status(500).json({
+			success: false,
 			message: 'Can not update because of a server side error!',
 		})
 	}

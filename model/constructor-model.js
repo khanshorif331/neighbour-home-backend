@@ -12,11 +12,11 @@ const constructorSchema = new mongoose.Schema({
 	},
 	picture: String,
 	duration: {
-		type: String,
+		type: Number,
 		required: true,
 	},
-	assignment: String,
-	discount: String,
+	assignment: Number,
+	discount: Number,
 	price: {
 		type: Number,
 		required: true,
