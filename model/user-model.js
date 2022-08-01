@@ -47,6 +47,10 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		// enum: ['engineer', 'worker', 'buyer', 'admin'],
 	},
+	vip: Boolean,
+	admin: {
+		type: Boolean,
+	},
 })
 
 const user = mongoose.model('user', userSchema)

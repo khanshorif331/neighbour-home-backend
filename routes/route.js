@@ -44,6 +44,7 @@ const {
 	updateUser,
 	deleteUser,
 	emailPost,
+	vipFinder,
 } = require('../controller/user-controller.js')
 
 const router = express.Router()
@@ -80,8 +81,10 @@ router.delete('/book/:id', deleteBook)
 // router.post('/user', postUser)
 router.get('/user', getAllUser)
 router.get('/user/:id', singleUser)
+// in this put method need the quer param as email
 router.put('/user', updateUser)
 router.delete('/user/:id', deleteUser)
 router.post('/user', emailPost)
+router.get('/vipUser', vipFinder)
 
 module.exports = router
