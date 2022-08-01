@@ -44,6 +44,7 @@ const {
 	updateUser,
 	deleteUser,
 	emailPost,
+	vipFinder,
 } = require('../controller/user-controller.js')
 
 const router = express.Router()
@@ -84,5 +85,6 @@ router.get('/user/:id', singleUser)
 router.put('/user', updateUser)
 router.delete('/user/:id', deleteUser)
 router.post('/user', emailPost)
+router.get('/vipUser', vipFinder)
 
 module.exports = router

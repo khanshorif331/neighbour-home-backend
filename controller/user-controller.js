@@ -65,6 +65,16 @@ const singleUser = async (req, res) => {
 	}
 }
 
+// getting single user data by id
+const vipFinder = async (req, res) => {
+	try {
+		const data = await User.find({ vip: true })
+		res.status(200).json(data)
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
 // updating a single user data $set needs to be update
 const updateUser = async (req, res) => {
 	try {
@@ -107,4 +117,5 @@ module.exports = {
 	updateUser,
 	deleteUser,
 	emailPost,
+	vipFinder,
 }
