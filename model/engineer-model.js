@@ -17,6 +17,7 @@ const engineerSchema = new mongoose.Schema({
 		minLength: 3,
 		maxLength: 30,
 	},
+	bio: String,
 })
 
 const engineer = mongoose.model('engineer', engineerSchema)
