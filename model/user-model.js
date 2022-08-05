@@ -51,6 +51,7 @@ const userSchema = new mongoose.Schema({
 	admin: {
 		type: Boolean,
 	},
+	userInfo: String,
 })
 
 const user = mongoose.model('user', userSchema)

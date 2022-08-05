@@ -20,8 +20,10 @@ const User = require('../model/user-model.js')
 // posting user email from register
 const emailPost = async (req, res) => {
 	try {
-		const exist = await User.findOne({ email: req.body.email })
-		if (exist) {
+		const exist = await User.findOne({
+			email: req.body.email,
+		})
+		if (exist && exist.name) {
 			return res.status(401).json({
 				message: 'Email already exists',
 				report: 'exist',
@@ -34,7 +36,6 @@ const emailPost = async (req, res) => {
 		await newUser.save()
 
 		res.send({
-			// user,
 			report: 'inserted',
 		})
 	} catch (err) {
