@@ -5,7 +5,7 @@ const bookingSchema = new mongoose.Schema({
 		name: String,
 		customerEmail: String,
 		customerAddress: String,
-		customerPhone: Number,
+		customerPhone: String,
 	},
 
 	engineer: {
@@ -14,7 +14,7 @@ const bookingSchema = new mongoose.Schema({
 		picture: String,
 		profession: String,
 		email: String,
-		phone: Number,
+		phone: String,
 		_id: String,
 	},
 })
