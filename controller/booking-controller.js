@@ -3,9 +3,7 @@ const Booking = require('../model/booking-model')
 // posting a booking data
 const singleBookingPost = async (req, res) => {
 	try {
-		console.log('hello')
 		const booking = req.body
-		console.log(booking)
 		const newBooking = new Booking(booking)
 		await newBooking.save()
 		res.status(200).json({
@@ -38,7 +36,7 @@ const getBookingDataByEmail = async (req, res) => {
 		res.status(500).json({ message: 'There was a server side error!' })
 	}
 }
-
+// exporitng thing
 module.exports = {
 	getAllBooking,
 	getBookingDataByEmail,
