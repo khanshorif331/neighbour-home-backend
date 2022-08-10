@@ -30,7 +30,9 @@ const getAllBooking = async (req, res) => {
 const getBookingDataByEmail = async (req, res) => {
 	try {
 		const email = req.query.email
-		const data = await Booking.find({ email: email })
+		// console.log(email)
+		const data = await Booking.find({ 'engineer.email': email })
+		// console.log(data)
 		res.status(200).json(data)
 	} catch (err) {
 		res.status(500).json({ message: 'There was a server side error!' })
