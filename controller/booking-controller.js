@@ -36,7 +36,7 @@ const getBookingDataByEmail = async (req, res) => {
 		res.status(500).json({ message: 'There was a server side error!' })
 	}
 }
-// exporitng thing
+
 module.exports = {
 	getAllBooking,
 	getBookingDataByEmail,
