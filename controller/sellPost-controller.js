@@ -35,6 +35,19 @@ const singleSellPostData = async (req, res) => {
 	}
 }
 
+// getting single sellPost data by email
+const singleSellPostByEmail = async (req, res) => {
+	try {
+		const email = req.query.email
+		const data = await SellPost.find({ email: email })
+		res.status(200).json(data)
+	} catch (err) {
+		res.status(500).json({
+			message: 'There was a server side error from email!',
+		})
+	}
+}
+
 // updating a single sellPost data $set needs to be update
 const updateSellPost = async (req, res) => {
 	try {
@@ -75,4 +88,5 @@ module.exports = {
 	singleSellPostData,
 	updateSellPost,
 	deleteSellPost,
+	singleSellPostByEmail,
 }
