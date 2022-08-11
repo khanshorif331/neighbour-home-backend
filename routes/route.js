@@ -60,6 +60,7 @@ const {
 	sellPostInfoGet,
 	getAllSellPostData,
 	singleSellPostData,
+	updateSellPost,
 } = require('../controller/sellPost-controller.js')
 
 const router = express.Router()
@@ -112,5 +113,6 @@ router.delete('/booking/:id', deleteBooking)
 router.post('/sellPost', sellPostInfoGet)
 router.get('/sellPost', getAllSellPostData)
 router.get('/sellPost/:id', singleSellPostData)
+router.put('/sellPost/:id', updateSellPost)
 
 module.exports = router
