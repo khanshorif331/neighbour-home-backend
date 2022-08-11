@@ -52,6 +52,7 @@ const {
 	getAllBooking,
 	getBookingDataByEmail,
 	singleBookingPost,
+	deleteBooking,
 } = require('../controller/booking-controller.js')
 
 const router = express.Router()
@@ -98,5 +99,6 @@ router.get('/vipUser', vipFinder)
 router.get('/booking', getAllBooking)
 router.get('/bookingByEmail', getBookingDataByEmail)
 router.post('/booking', singleBookingPost)
+router.delete('/booking/:id', deleteBooking)
 
 module.exports = router
