@@ -54,6 +54,8 @@ const {
 	singleBookingPost,
 	deleteBooking,
 } = require('../controller/booking-controller.js')
+
+// sellpost controller
 const sellPostInfoGet = require('../controller/sellPost-controller.js')
 
 const router = express.Router()
