@@ -52,7 +52,19 @@ const {
 	getAllBooking,
 	getBookingDataByEmail,
 	singleBookingPost,
+	deleteBooking,
+	deleteAllBooking,
 } = require('../controller/booking-controller.js')
+
+// sellpost controller
+const {
+	sellPostInfoGet,
+	getAllSellPostData,
+	singleSellPostData,
+	updateSellPost,
+	deleteSellPost,
+	singleSellPostByEmail,
+} = require('../controller/sellPost-controller.js')
 
 const router = express.Router()
 
@@ -98,5 +110,15 @@ router.get('/vipUser', vipFinder)
 router.get('/booking', getAllBooking)
 router.get('/bookingByEmail', getBookingDataByEmail)
 router.post('/booking', singleBookingPost)
+router.delete('/booking/:id', deleteBooking)
+router.delete('deleteAllBooking', deleteAllBooking)
+
+// sellpost routes
+router.post('/sellPost', sellPostInfoGet)
+router.get('/sellPost', getAllSellPostData)
+router.get('/sellPost/:id', singleSellPostData)
+router.get('/sellPostByEmail', singleSellPostByEmail)
+router.put('/sellPost/:id', updateSellPost)
+router.delete('/sellPost/:id', deleteSellPost)
 
 module.exports = router
