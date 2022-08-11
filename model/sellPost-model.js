@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const sellPostSchema = new mongoose.Schema({
+	email: String,
 	propertyName: String,
 	propertyType: String,
 	sellerName: String,
