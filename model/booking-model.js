@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const bookingSchema = new mongoose.Schema({
 	data: {
-		name: String,
+		customerName: String,
 		customerEmail: String,
 		customerAddress: String,
 		customerPhone: String,
@@ -17,6 +17,7 @@ const bookingSchema = new mongoose.Schema({
 		phone: String,
 		_id: String,
 	},
+	status: String,
 })
 
 const booking = mongoose.model('booking', bookingSchema)
