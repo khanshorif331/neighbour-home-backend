@@ -56,9 +56,23 @@ const updateSellPost = async (req, res) => {
 	}
 }
 
+// deleting single sellPost data by id
+const deleteSellPost = async (req, res) => {
+	try {
+		const id = req.params.id
+		await SellPost.deleteOne({ _id: id })
+		res.status(200).json({
+			message: 'SellingPost data was deleted successfully',
+		})
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
 module.exports = {
 	sellPostInfoGet,
 	getAllSellPostData,
 	singleSellPostData,
 	updateSellPost,
+	deleteSellPost,
 }
