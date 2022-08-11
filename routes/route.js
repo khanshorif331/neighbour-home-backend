@@ -53,6 +53,7 @@ const {
 	getBookingDataByEmail,
 	singleBookingPost,
 	deleteBooking,
+	deleteAllBooking,
 } = require('../controller/booking-controller.js')
 
 // sellpost controller
@@ -110,6 +111,7 @@ router.get('/booking', getAllBooking)
 router.get('/bookingByEmail', getBookingDataByEmail)
 router.post('/booking', singleBookingPost)
 router.delete('/booking/:id', deleteBooking)
+router.delete('deleteAllBooking', deleteAllBooking)
 
 // sellpost routes
 router.post('/sellPost', sellPostInfoGet)

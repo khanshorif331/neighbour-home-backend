@@ -39,7 +39,7 @@ const getBookingDataByEmail = async (req, res) => {
 	}
 }
 
-// deleting single book data by id
+// deleting single booking data by id
 const deleteBooking = async (req, res) => {
 	try {
 		const id = req.params.id
@@ -52,9 +52,24 @@ const deleteBooking = async (req, res) => {
 	}
 }
 
+// deleting all booking data by email
+const deleteAllBooking = async (req, res) => {
+	try {
+		const email = req.query.email
+		await Booking.deleteMany({ email: email })
+		res.status(200).json({
+			success: true,
+			message: 'Booking data was deleted successfully',
+		})
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
 module.exports = {
 	getAllBooking,
 	getBookingDataByEmail,
 	singleBookingPost,
 	deleteBooking,
+	deleteAllBooking,
 }
