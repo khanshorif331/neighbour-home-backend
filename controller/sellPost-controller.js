@@ -24,4 +24,15 @@ const getAllSellPostData = async (req, res) => {
 	}
 }
 
-module.exports = { sellPostInfoGet, getAllSellPostData }
+// getting single book data by id
+const singleSellPostData = async (req, res) => {
+	try {
+		const id = req.params.id
+		const data = await SellPost.findById(id)
+		res.status(200).json(data)
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
+module.exports = { sellPostInfoGet, getAllSellPostData, singleSellPostData }
