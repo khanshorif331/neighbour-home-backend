@@ -31,7 +31,7 @@ const getBookingDataByEmail = async (req, res) => {
 	try {
 		const email = req.query.email
 		// console.log(email)
-		const data = await Booking.find({ 'engineer.email': email })
+		const data = await Booking.find({ 'data.customerEmail': email })
 		// console.log(data)
 		res.status(200).json(data)
 	} catch (err) {
