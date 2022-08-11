@@ -54,6 +54,7 @@ const {
 	singleBookingPost,
 	deleteBooking,
 } = require('../controller/booking-controller.js')
+const sellPostInfoGet = require('../controller/sellPost-controller.js')
 
 const router = express.Router()
 
@@ -100,5 +101,8 @@ router.get('/booking', getAllBooking)
 router.get('/bookingByEmail', getBookingDataByEmail)
 router.post('/booking', singleBookingPost)
 router.delete('/booking/:id', deleteBooking)
+
+// sellpost routes
+router.post('/sellPost', sellPostInfoGet)
 
 module.exports = router
