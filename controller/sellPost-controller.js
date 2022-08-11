@@ -24,7 +24,7 @@ const getAllSellPostData = async (req, res) => {
 	}
 }
 
-// getting single book data by id
+// getting single sellPost data by id
 const singleSellPostData = async (req, res) => {
 	try {
 		const id = req.params.id
@@ -35,4 +35,30 @@ const singleSellPostData = async (req, res) => {
 	}
 }
 
-module.exports = { sellPostInfoGet, getAllSellPostData, singleSellPostData }
+// updating a single sellPost data $set needs to be update
+const updateSellPost = async (req, res) => {
+	try {
+		const id = req.params.id
+		const sellPost = req.body
+		await SellPost.updateOne(
+			{ _id: id },
+			{
+				$set: sellPost,
+			}
+		)
+		res.status(200).json({
+			message: 'Selling data was updated successfully',
+		})
+	} catch (err) {
+		res.status(500).json({
+			message: 'Can not update because of a server side error!',
+		})
+	}
+}
+
+module.exports = {
+	sellPostInfoGet,
+	getAllSellPostData,
+	singleSellPostData,
+	updateSellPost,
+}
