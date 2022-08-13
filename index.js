@@ -2,8 +2,8 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const dotenv = require('dotenv')
-const Stripe = require('stripe');
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const Stripe = require('stripe')
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 const PORT = process.env.PORT || 5000
 
 const Connection = require('./database/db')
@@ -21,21 +21,24 @@ const PASSWORD = process.env.DB_PASSWORD
 
 Connection(USERNAME, PASSWORD)
 
-app.post("/create-payment-intent", async (req, res) => {
-	const { propertyPrice } = req.body;
-	const amount = propertyPrice * 100;
+app.post('/create-payment-intent', async (req, res) => {
+	try {
+		const { propertyPrice } = req.body
+		const amount = propertyPrice * 100
 
-	// Create a PaymentIntent with the order amount and currency
-	const paymentIntent = await stripe.paymentIntents.create({
-		amount: amount,
-		currency: "usd",
-		payment_method_types: ['card']
-	});
-	res.send({
-		clientSecret: paymentIntent.client_secret,
-	});
-});
-
+		// Create a PaymentIntent with the order amount and currency
+		const paymentIntent = await stripe.paymentIntents.create({
+			amount: amount,
+			currency: 'usd',
+			payment_method_types: ['card'],
+		})
+		res.send({
+			clientSecret: paymentIntent.client_secret,
+		})
+	} catch (err) {
+		console.log(err)
+	}
+})
 
 app.use('/', router)
 
