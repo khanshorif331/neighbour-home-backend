@@ -21,6 +21,7 @@ const PASSWORD = process.env.DB_PASSWORD
 
 Connection(USERNAME, PASSWORD)
 
+// payment
 app.post('/create-payment-intent', async (req, res) => {
 	try {
 		const { propertyPrice } = req.body
