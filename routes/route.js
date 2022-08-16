@@ -58,6 +58,15 @@ const {
 
 // sellpost controller
 const {
+	orderPost,
+	getAllOrder,
+	singleOrder,
+	getOrderDataByEmail,
+	deleteOrder
+} = require('../controller/order-controller.js')
+
+// sellpost controller
+const {
 	sellPostInfoGet,
 	getAllSellPostData,
 	singleSellPostData,
@@ -65,6 +74,11 @@ const {
 	deleteSellPost,
 	singleSellPostByEmail,
 } = require('../controller/sellPost-controller.js')
+
+// sellpost controller
+const {
+	
+} = require('../controller/order-controller')
 
 const router = express.Router()
 
@@ -112,6 +126,13 @@ router.get('/bookingByEmail', getBookingDataByEmail)
 router.post('/booking', singleBookingPost)
 router.delete('/booking/:id', deleteBooking)
 router.delete('deleteAllBooking', deleteAllBooking)
+
+
+// order routes
+router.get('/order', getAllOrder)
+router.get('/orderByEmail', getOrderDataByEmail)
+router.post('/order', orderPost)
+router.delete('/order/:id', deleteOrder)
 
 // sellpost routes
 router.post('/sellPost', sellPostInfoGet)
