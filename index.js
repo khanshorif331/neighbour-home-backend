@@ -3,7 +3,9 @@ const app = express()
 const cors = require('cors')
 const dotenv = require('dotenv')
 const Stripe = require('stripe')
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
+const stripe = Stripe(
+	'sk_test_51L1nmKGPq7AV2lfoMBfMhIyvnC3qDye5Za6MatNwxCHBnYuiV6xXt9Ad2cGN7f7YheVhaxaSFlmLGJB9SEN2WmcK00fVZldDDq'
+)
 const PORT = process.env.PORT || 5000
 
 const Connection = require('./database/db')
@@ -21,9 +23,9 @@ const PASSWORD = process.env.DB_PASSWORD
 
 Connection(USERNAME, PASSWORD)
 
-// payment roooute
-app.post('/create-payment-intent', async (req, res) => {
-	try {
+// create payment
+async function run() {
+	app.post('/create-payment-intent', async (req, res) => {
 		const { propertyPrice } = req.body
 		const amount = propertyPrice * 100
 
@@ -36,10 +38,9 @@ app.post('/create-payment-intent', async (req, res) => {
 		res.send({
 			clientSecret: paymentIntent.client_secret,
 		})
-	} catch (err) {
-		console.log(err)
-	}
-})
+	})
+}
+run()
 
 app.use('/', router)
 
