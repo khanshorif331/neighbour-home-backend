@@ -45,15 +45,19 @@ const {
 	deleteUser,
 	emailPost,
 	vipFinder,
+	getAuthEngineer,
 } = require('../controller/user-controller.js')
 
 // booking controllers
 const {
 	getAllBooking,
+	getSingleBooking,
 	getBookingDataByEmail,
+	getBookingDataByEngineerEmail,
 	singleBookingPost,
 	deleteBooking,
 	deleteAllBooking,
+	updateBooking,
 } = require('../controller/booking-controller.js')
 
 // sellpost controller
@@ -119,13 +123,17 @@ router.put('/user', updateUser)
 router.delete('/user/:id', deleteUser)
 router.post('/user', emailPost)
 router.get('/vipUser', vipFinder)
+router.get('/authEngineer/:email', getAuthEngineer)
 
 // booking routes
 router.get('/booking', getAllBooking)
+router.get('/booking/:id', getSingleBooking)
 router.get('/bookingByEmail', getBookingDataByEmail)
+router.get('/bookingByEngineerEmail', getBookingDataByEngineerEmail)
 router.post('/booking', singleBookingPost)
 router.delete('/booking/:id', deleteBooking)
-router.delete('deleteAllBooking', deleteAllBooking)
+router.delete('/deleteAllBooking', deleteAllBooking)
+router.put('/booking/:id', updateBooking)
 
 
 // order routes
