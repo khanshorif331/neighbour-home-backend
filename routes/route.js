@@ -53,7 +53,7 @@ const {
 	getAllBooking,
 	getSingleBooking,
 	getBookingDataByEmail,
-	getBookingDataByEngineerEmail,
+	getBookingDataByEngineerId,
 	singleBookingPost,
 	deleteBooking,
 	deleteAllBooking,
@@ -129,7 +129,7 @@ router.get('/authEngineer/:email', getAuthEngineer)
 router.get('/booking', getAllBooking)
 router.get('/booking/:id', getSingleBooking)
 router.get('/bookingByEmail', getBookingDataByEmail)
-router.get('/bookingByEngineerEmail', getBookingDataByEngineerEmail)
+router.get('/bookingByEngineerId/:id', getBookingDataByEngineerId)
 router.post('/booking', singleBookingPost)
 router.delete('/booking/:id', deleteBooking)
 router.delete('/deleteAllBooking', deleteAllBooking)
