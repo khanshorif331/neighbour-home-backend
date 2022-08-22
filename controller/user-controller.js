@@ -21,23 +21,37 @@ const User = require('../model/user-model.js')
 const emailPost = async (req, res) => {
 	try {
 		const exist = await User.findOne({
-			email: req.body.email,
+			email: req?.body?.email,
 		})
-		if (exist && exist.name) {
+		console.log(exist)
+		if (exist?.name) {
+			return res.status(401).json({
+				message: 'Email data already exists',
+				report: 'dataExist',
+			})
+		} else if (exist) {
 			return res.status(401).json({
 				message: 'Email already exists',
 				report: 'exist',
 			})
 		}
+		//  else if (exist.name) {
+		// 	return res.status(401).json({
+		// 		message: 'Email data already exists',
+		// 		report: 'dataExist',
+		// 	})
+		// }
+		// console.log(exist)
+		else {
+			const userEmail = req.body
+			const newUser = new User(userEmail)
 
-		const userEmail = req.body
-		const newUser = new User(userEmail)
+			await newUser.save()
 
-		await newUser.save()
-
-		res.send({
-			report: 'inserted',
-		})
+			res.send({
+				report: 'inserted',
+			})
+		}
 	} catch (err) {
 		res.status(500).json({
 			message: err.message,
@@ -87,6 +101,7 @@ const updateUser = async (req, res) => {
 			{
 				$set: userData,
 			}
+			// { upsert: true }
 		)
 		res.status(200).json({
 			message: 'User data was updated successfully',
@@ -111,6 +126,18 @@ const deleteUser = async (req, res) => {
 	}
 }
 
+// getting single (engineerRoled)user data by email
+const getAuthEngineer = async (req, res) => {
+	try {
+		const email = req.params.email
+		const user = await User.findOne({email: email})
+		const isAuthEngineer = user.role === 'Engineer';
+		res.status(200).json({authEngineer: isAuthEngineer})
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
 module.exports = {
 	// postUser,
 	getAllUser,
@@ -119,4 +146,5 @@ module.exports = {
 	deleteUser,
 	emailPost,
 	vipFinder,
-}
+	getAuthEngineer,
+}	
