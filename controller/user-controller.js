@@ -126,6 +126,18 @@ const deleteUser = async (req, res) => {
 	}
 }
 
+// getting single (engineerRoled)user data by email
+const getAuthEngineer = async (req, res) => {
+	try {
+		const email = req.params.email
+		const user = await User.findOne({email: email})
+		const isAuthEngineer = user.role === 'Engineer';
+		res.status(200).json({authEngineer: isAuthEngineer})
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
 module.exports = {
 	// postUser,
 	getAllUser,
@@ -134,4 +146,5 @@ module.exports = {
 	deleteUser,
 	emailPost,
 	vipFinder,
-}
+	getAuthEngineer,
+}	
