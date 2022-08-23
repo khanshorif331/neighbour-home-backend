@@ -1,4 +1,5 @@
 const User = require('../model/user-model.js')
+const jwt = require('jsonwebtoken')
 
 // posting a user data
 // const postUser = async (req, res) => {
@@ -23,9 +24,20 @@ const emailPost = async (req, res) => {
 		const exist = await User.findOne({
 			email: req?.body?.email,
 		})
-		console.log(exist)
-		if (exist?.name) {
+		// console.log(exist)
+		if (exist?.username) {
+			// const token = jwt.sign(
+			// 	{
+			// 		email: req.body.email,
+			// 	},
+			// 	process.env.ACCESS_TOKEN_SECRET,
+			// 	{
+			// 		expiresIn: '1h',
+			// 	}
+			// )
+
 			return res.status(401).json({
+				// accessToken: token,
 				message: 'Email data already exists',
 				report: 'dataExist',
 			})
@@ -34,15 +46,7 @@ const emailPost = async (req, res) => {
 				message: 'Email already exists',
 				report: 'exist',
 			})
-		}
-		//  else if (exist.name) {
-		// 	return res.status(401).json({
-		// 		message: 'Email data already exists',
-		// 		report: 'dataExist',
-		// 	})
-		// }
-		// console.log(exist)
-		else {
+		} else {
 			const userEmail = req.body
 			const newUser = new User(userEmail)
 
@@ -54,7 +58,7 @@ const emailPost = async (req, res) => {
 		}
 	} catch (err) {
 		res.status(500).json({
-			message: err.message,
+			message: 'Authentication Failed',
 		})
 	}
 }
@@ -130,9 +134,9 @@ const deleteUser = async (req, res) => {
 const getAuthEngineer = async (req, res) => {
 	try {
 		const email = req.params.email
-		const user = await User.findOne({email: email})
-		const isAuthEngineer = user.role === 'Engineer';
-		res.status(200).json({authEngineer: isAuthEngineer})
+		const user = await User.findOne({ email: email })
+		const isAuthEngineer = user.role === 'Engineer'
+		res.status(200).json({ authEngineer: isAuthEngineer })
 	} catch (err) {
 		res.status(500).json({ message: 'There was a server side error!' })
 	}
@@ -147,4 +151,4 @@ module.exports = {
 	emailPost,
 	vipFinder,
 	getAuthEngineer,
-}	
+}
