@@ -1,4 +1,6 @@
 const express = require('express')
+// verify jwt middleware
+const checkLogin = require('../middlewares/checkLogin.js')
 
 // engineer controllers
 const {
@@ -66,7 +68,7 @@ const {
 	getAllOrder,
 	singleOrder,
 	getOrderDataByEmail,
-	deleteOrder
+	deleteOrder,
 } = require('../controller/order-controller.js')
 
 // sellpost controller
@@ -80,9 +82,7 @@ const {
 } = require('../controller/sellPost-controller.js')
 
 // sellpost controller
-const {
-	
-} = require('../controller/order-controller')
+const {} = require('../controller/order-controller')
 
 const router = express.Router()
 
@@ -134,7 +134,6 @@ router.post('/booking', singleBookingPost)
 router.delete('/booking/:id', deleteBooking)
 router.delete('/deleteAllBooking', deleteAllBooking)
 router.put('/booking/:id', updateBooking)
-
 
 // order routes
 router.get('/order', getAllOrder)
