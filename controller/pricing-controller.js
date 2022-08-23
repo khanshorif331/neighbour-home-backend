@@ -26,4 +26,15 @@ const getAllPricingData = async (req, res) => {
 	}
 }
 
-module.exports = { singlePricingPost, getAllPricingData }
+// getting single pricing data by id
+const singlePricingData = async (req, res) => {
+	try {
+		const id = req.params.id
+		const data = await Pricing.findById(id)
+		res.status(200).json(data)
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
+module.exports = { singlePricingPost, getAllPricingData, singlePricingData }
