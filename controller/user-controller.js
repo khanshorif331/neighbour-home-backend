@@ -126,6 +126,17 @@ const getAuthEngineer = async (req, res) => {
 	}
 }
 
+// get single user by email
+const singleUserByEmail = async (req, res) => {
+	try {
+		const email = req.params.email
+		const data = await User.findOne({ email: email })
+		res.status(200).json(data)
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
 module.exports = {
 	// postUser,
 	getAllUser,
@@ -135,4 +146,5 @@ module.exports = {
 	emailPost,
 	vipFinder,
 	getAuthEngineer,
+	singleUserByEmail,
 }
