@@ -10,18 +10,18 @@ const emailPost = async (req, res) => {
 		})
 		// console.log(exist)
 		if (exist?.username) {
-			const token = jwt.sign(
-				{
-					email: req.body.email,
-				},
-				process.env.ACCESS_TOKEN_SECRET,
-				{
-					expiresIn: '1h',
-				}
-			)
+			// const token = jwt.sign(
+			// 	{
+			// 		email: req.body.email,
+			// 	},
+			// 	process.env.ACCESS_TOKEN_SECRET,
+			// 	{
+			// 		expiresIn: '1h',
+			// 	}
+			// )
 
 			return res.status(401).json({
-				accessToken: token,
+				// accessToken: token,
 				message: 'Email data already exists',
 				report: 'dataExist',
 			})
