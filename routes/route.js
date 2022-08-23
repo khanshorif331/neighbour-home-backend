@@ -88,6 +88,7 @@ const {} = require('../controller/order-controller')
 const {
 	singlePricingPost,
 	getAllPricingData,
+	singlePricingData,
 } = require('../controller/pricing-controller.js')
 
 const router = express.Router()
@@ -158,5 +159,6 @@ router.delete('/sellPost/:id', deleteSellPost)
 // pricing routes
 router.post('/pricing', singlePricingPost)
 router.get('/pricing', getAllPricingData)
+router.get('/pricing/:id', singlePricingData)
 
 module.exports = router
