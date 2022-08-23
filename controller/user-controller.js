@@ -1,22 +1,6 @@
 const User = require('../model/user-model.js')
 const jwt = require('jsonwebtoken')
-
-// posting a user data
-// const postUser = async (req, res) => {
-// 	try {
-// 		const user = req.body
-// 		const newUser = new User(user)
-
-// 		await newUser.save()
-// 		res.status(200).json({
-// 			message: 'User data saved successfully',
-// 		})
-// 	} catch (err) {
-// 		res.status(500).json({
-// 			message: 'There was a server side error! from user posting',
-// 		})
-// 	}
-// }
+const checkLogin = require('../middlewares/checkLogin.js')
 
 // posting user email from register
 const emailPost = async (req, res) => {
@@ -26,18 +10,18 @@ const emailPost = async (req, res) => {
 		})
 		// console.log(exist)
 		if (exist?.username) {
-			// const token = jwt.sign(
-			// 	{
-			// 		email: req.body.email,
-			// 	},
-			// 	process.env.ACCESS_TOKEN_SECRET,
-			// 	{
-			// 		expiresIn: '1h',
-			// 	}
-			// )
+			const token = jwt.sign(
+				{
+					email: req.body.email,
+				},
+				process.env.ACCESS_TOKEN_SECRET,
+				{
+					expiresIn: '1h',
+				}
+			)
 
 			return res.status(401).json({
-				// accessToken: token,
+				accessToken: token,
 				message: 'Email data already exists',
 				report: 'dataExist',
 			})

@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken')
 const checkLogin = (req, res, next) => {
 	const authHeader = req.headers.authorization
 	try {
@@ -8,12 +9,13 @@ const checkLogin = (req, res, next) => {
 		req.email = email
 		next()
 	} catch (err) {
+		console.log(err)
 		// if we write something inside of next function,it will be count as error message
-		next('Authentication failure')
-		// res.status(500).json({
-		//     message: 'Authentication failure',
-		// })
+		// next('Authentication failure')
+		res.status(500).json({
+			message: 'Authentication failure',
+		})
 	}
 }
 
-module.expoorts = checkLogin
+module.exports = checkLogin
