@@ -26,4 +26,19 @@ const getAllNotification = async (req, res) => {
 	}
 }
 
-module.exports = { singleNotificationPost, getAllNotification }
+// getting single notification data by id
+const singleNotification = async (req, res) => {
+	try {
+		const id = req.params.id
+		const data = await Notification.findById(id)
+		res.status(200).json(data)
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
+module.exports = {
+	singleNotificationPost,
+	getAllNotification,
+	singleNotification,
+}
