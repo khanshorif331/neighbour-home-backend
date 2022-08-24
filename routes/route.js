@@ -49,6 +49,7 @@ const {
 	vipFinder,
 	getAuthEngineer,
 	singleUserByEmail,
+	getWorkers,
 } = require('../controller/user-controller.js')
 
 // booking controllers
@@ -133,6 +134,7 @@ router.post('/user', emailPost)
 router.get('/vipUser', vipFinder)
 router.get('/authEngineer/:email', getAuthEngineer)
 router.get('/singleUserByEmail/:email', singleUserByEmail)
+router.get('/workers', getWorkers)
 
 // booking routes
 router.get('/booking', getAllBooking)
