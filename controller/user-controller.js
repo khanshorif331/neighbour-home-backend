@@ -141,7 +141,7 @@ const getAuthEngineer = async (req, res) => {
 const singleUserByEmail = async (req, res) => {
 	try {
 		const email = req.params.email
-		const data = await User.findOne({ email: email })
+		const data = await User.find({ email: email })
 		res.status(200).json(data)
 	} catch (err) {
 		res.status(500).json({ message: 'There was a server side error!' })
