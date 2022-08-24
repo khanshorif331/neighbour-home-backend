@@ -100,6 +100,7 @@ const {
 	singleNotification,
 	deleteNotification,
 	updateNotification,
+	singleNotificationByEmail,
 } = require('../controller/notification-controller.js')
 
 const router = express.Router()
@@ -177,6 +178,7 @@ router.get('/pricing/:id', singlePricingData)
 // notification routes
 router.post('/notification', singleNotificationPost)
 router.get('/notification', getAllNotification)
+router.get('/notification/:email', singleNotificationByEmail)
 router.get('/notification/:id', singleNotification)
 router.delete('/notification/:id', deleteNotification)
 router.put('/notification/:id', updateNotification)
