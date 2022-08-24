@@ -41,7 +41,7 @@ const singleNotification = async (req, res) => {
 const singleNotificationByEmail = async (req, res) => {
 	try {
 		const email = req.params.email
-		const data = await Notification.findOne({ user_email: email })
+		const data = await Notification.find({ user_email: email })
 		res.status(200).json(data)
 	} catch (err) {
 		res.status(500).json({ message: 'There was a server side error!' })
