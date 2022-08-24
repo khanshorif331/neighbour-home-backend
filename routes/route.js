@@ -177,6 +177,6 @@ router.get('/pricing/:id', singlePricingData)
 router.post('/notification', singleNotificationPost)
 router.get('/notification', getAllNotification)
 router.get('/notification/:id', singleNotification)
-router.delete('notification/:id', deleteNotification)
+router.delete('/notification/:id', deleteNotification)
 
 module.exports = router
