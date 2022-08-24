@@ -173,6 +173,6 @@ router.get('/pricing/:id', singlePricingData)
 
 // notification routes
 router.post('/notification', singleNotificationPost)
-router.get('notification', getAllNotification)
+router.get('/notification', getAllNotification)
 
 module.exports = router
