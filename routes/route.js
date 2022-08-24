@@ -97,6 +97,7 @@ const {
 const {
 	singleNotificationPost,
 	getAllNotification,
+	singleNotification,
 } = require('../controller/notification-controller.js')
 
 const router = express.Router()
@@ -174,5 +175,6 @@ router.get('/pricing/:id', singlePricingData)
 // notification routes
 router.post('/notification', singleNotificationPost)
 router.get('/notification', getAllNotification)
+router.get('/notification/:id', singleNotification)
 
 module.exports = router
