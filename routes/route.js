@@ -93,6 +93,9 @@ const {
 	singlePricingData,
 } = require('../controller/pricing-controller.js')
 
+// notification controller
+const singleNotificationPost = require('../controller/notification-controller.js')
+
 const router = express.Router()
 
 // engineers routes
@@ -164,5 +167,8 @@ router.delete('/sellPost/:id', deleteSellPost)
 router.post('/pricing', singlePricingPost)
 router.get('/pricing', getAllPricingData)
 router.get('/pricing/:id', singlePricingData)
+
+// notification routes
+router.post('/notification', singleNotificationPost)
 
 module.exports = router

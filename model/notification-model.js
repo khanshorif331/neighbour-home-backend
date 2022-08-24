@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const notificationSchema = new mongoose.Schema({
 	heading: String,
-	data: Date,
+	date: String,
 })
 
 const notification = mongoose.model('notification', notificationSchema)
