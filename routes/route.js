@@ -99,6 +99,7 @@ const {
 	getAllNotification,
 	singleNotification,
 	deleteNotification,
+	updateNotification,
 } = require('../controller/notification-controller.js')
 
 const router = express.Router()
@@ -178,5 +179,6 @@ router.post('/notification', singleNotificationPost)
 router.get('/notification', getAllNotification)
 router.get('/notification/:id', singleNotification)
 router.delete('/notification/:id', deleteNotification)
+router.put('/notification/:id', updateNotification)
 
 module.exports = router
