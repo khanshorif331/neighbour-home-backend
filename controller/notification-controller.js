@@ -50,9 +50,31 @@ const deleteNotification = async (req, res) => {
 	}
 }
 
+// updating a single notification data $set needs to be update
+const updateNotification = async (req, res) => {
+	try {
+		const id = req.params.id
+		const notification = req.body
+		await Notification.updateOne(
+			{ _id: id },
+			{
+				$set: notification,
+			}
+		)
+		res.status(200).json({
+			message: 'Notification data was updated successfully',
+		})
+	} catch (err) {
+		res.status(500).json({
+			message: 'Can not update because of a server side error!',
+		})
+	}
+}
+
 module.exports = {
 	singleNotificationPost,
 	getAllNotification,
 	singleNotification,
 	deleteNotification,
+	updateNotification,
 }
