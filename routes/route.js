@@ -49,6 +49,7 @@ const {
 	vipFinder,
 	getAuthEngineer,
 	singleUserByEmail,
+	getUserByRole,
 } = require('../controller/user-controller.js')
 
 // booking controllers
@@ -92,6 +93,15 @@ const {
 	singlePricingData,
 } = require('../controller/pricing-controller.js')
 
+// notification controller
+const {
+	singleNotificationPost,
+	getAllNotification,
+	singleNotification,
+	deleteNotification,
+	updateNotification,
+} = require('../controller/notification-controller.js')
+
 const router = express.Router()
 
 // engineers routes
@@ -133,6 +143,7 @@ router.post('/user', emailPost)
 router.get('/vipUser', vipFinder)
 router.get('/authEngineer/:email', getAuthEngineer)
 router.get('/singleUserByEmail/:email', singleUserByEmail)
+router.get('/getUserByRole/:role', getUserByRole)
 
 // booking routes
 router.get('/booking', getAllBooking)
@@ -162,5 +173,12 @@ router.delete('/sellPost/:id', deleteSellPost)
 router.post('/pricing', singlePricingPost)
 router.get('/pricing', getAllPricingData)
 router.get('/pricing/:id', singlePricingData)
+
+// notification routes
+router.post('/notification', singleNotificationPost)
+router.get('/notification', getAllNotification)
+router.get('/notification/:id', singleNotification)
+router.delete('/notification/:id', deleteNotification)
+router.put('/notification/:id', updateNotification)
 
 module.exports = router

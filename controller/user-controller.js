@@ -57,6 +57,17 @@ const getAllUser = async (req, res) => {
 	}
 }
 
+// getting all user data by role
+const getUserByRole = async (req, res) => {
+	try {
+		const role = req.params.role
+		const data = await User.find({ role: role })
+		res.status(200).json(data)
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
 // getting single user data by id
 const singleUser = async (req, res) => {
 	try {
@@ -147,4 +158,5 @@ module.exports = {
 	vipFinder,
 	getAuthEngineer,
 	singleUserByEmail,
+	getUserByRole,
 }
