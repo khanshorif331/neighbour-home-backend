@@ -1,4 +1,6 @@
 const express = require('express')
+// verify jwt middleware
+const checkLogin = require('../middlewares/checkLogin.js')
 
 // engineer controllers
 const {
@@ -38,7 +40,7 @@ const {
 
 // user controllers
 const {
-	postUser,
+	// postUser,
 	getAllUser,
 	singleUser,
 	updateUser,
@@ -46,6 +48,7 @@ const {
 	emailPost,
 	vipFinder,
 	getAuthEngineer,
+	singleUserByEmail,
 } = require('../controller/user-controller.js')
 
 // booking controllers
@@ -66,7 +69,7 @@ const {
 	getAllOrder,
 	singleOrder,
 	getOrderDataByEmail,
-	deleteOrder
+	deleteOrder,
 } = require('../controller/order-controller.js')
 
 // sellpost controller
@@ -80,9 +83,14 @@ const {
 } = require('../controller/sellPost-controller.js')
 
 // sellpost controller
+const {} = require('../controller/order-controller')
+
+// pricing controller
 const {
-	
-} = require('../controller/order-controller')
+	singlePricingPost,
+	getAllPricingData,
+	singlePricingData,
+} = require('../controller/pricing-controller.js')
 
 const router = express.Router()
 
@@ -114,7 +122,7 @@ router.get('/book/:id', singleBook)
 router.put('/book/:id', updateBook)
 router.delete('/book/:id', deleteBook)
 
-// user routes
+// user routes here
 // router.post('/user', postUser)
 router.get('/user', getAllUser)
 router.get('/user/:id', singleUser)
@@ -124,6 +132,7 @@ router.delete('/user/:id', deleteUser)
 router.post('/user', emailPost)
 router.get('/vipUser', vipFinder)
 router.get('/authEngineer/:email', getAuthEngineer)
+router.get('/singleUserByEmail/:email', singleUserByEmail)
 
 // booking routes
 router.get('/booking', getAllBooking)
@@ -134,7 +143,6 @@ router.post('/booking', singleBookingPost)
 router.delete('/booking/:id', deleteBooking)
 router.delete('/deleteAllBooking', deleteAllBooking)
 router.put('/booking/:id', updateBooking)
-
 
 // order routes
 router.get('/order', getAllOrder)
@@ -149,5 +157,10 @@ router.get('/sellPost/:id', singleSellPostData)
 router.get('/sellPostByEmail', singleSellPostByEmail)
 router.put('/sellPost/:id', updateSellPost)
 router.delete('/sellPost/:id', deleteSellPost)
+
+// pricing routes
+router.post('/pricing', singlePricingPost)
+router.get('/pricing', getAllPricingData)
+router.get('/pricing/:id', singlePricingData)
 
 module.exports = router
