@@ -37,8 +37,22 @@ const singleNotification = async (req, res) => {
 	}
 }
 
+// deleting single notification data by id
+const deleteNotification = async (req, res) => {
+	try {
+		const id = req.params.id
+		await Notification.deleteOne({ _id: id })
+		res.status(200).json({
+			message: 'Notification data was deleted successfully',
+		})
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
 module.exports = {
 	singleNotificationPost,
 	getAllNotification,
 	singleNotification,
+	deleteNotification,
 }
