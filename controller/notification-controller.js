@@ -37,6 +37,17 @@ const singleNotification = async (req, res) => {
 	}
 }
 
+// getting single notification data by email
+const singleNotificationByEmail = async (req, res) => {
+	try {
+		const email = req.params.email
+		const data = await Notification.findOne({ user_email: email })
+		res.status(200).json(data)
+	} catch (err) {
+		res.status(500).json({ message: 'There was a server side error!' })
+	}
+}
+
 // deleting single notification data by id
 const deleteNotification = async (req, res) => {
 	try {
@@ -77,4 +88,5 @@ module.exports = {
 	singleNotification,
 	deleteNotification,
 	updateNotification,
+	singleNotificationByEmail,
 }
