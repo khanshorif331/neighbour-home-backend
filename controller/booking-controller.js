@@ -49,13 +49,13 @@ const getBookingDataByEmail = async (req, res) => {
 	}
 }
 // getting all booking data
-const getBookingDataByEngineerId = async (req, res) => {
+const getBookingDataByEngineerEmail = async (req, res) => {
 	try {
-		const id= req.params.id;
+		// const id= req.params.id;
 		// console.log(id);
-		// const email = req.query.email
+		const email = req.query.email
 		// console.log(email)
-		const data = await Booking.find({ 'engineer._id': id })
+		const data = await Booking.find({ 'engineer.email': email })
 		// console.log(data)
 		res.status(200).json(data)
 	} catch (err) {
@@ -115,7 +115,7 @@ module.exports = {
 	getAllBooking,
 	getSingleBooking,
 	getBookingDataByEmail,
-	getBookingDataByEngineerId,
+	getBookingDataByEngineerEmail,
 	singleBookingPost,
 	deleteBooking,
 	deleteAllBooking,
