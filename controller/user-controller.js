@@ -137,18 +137,6 @@ const singleUserByEmail = async (req, res) => {
 	}
 }
 
-// getting all workers data
-const getWorkers = async (req, res) => {
-	try {
-		const role = 'Worker'
-		console.log(role)
-		const data = await User.find({ role: role })
-		// console.log(data)
-		res.status(200).json(data)
-	} catch (err) {
-		res.status(500).json({ message: 'There was a server side error!' })
-	}
-}
 
 
 module.exports = {
@@ -161,5 +149,4 @@ module.exports = {
 	vipFinder,
 	getAuthEngineer,
 	singleUserByEmail,
-	getWorkers,
 }
