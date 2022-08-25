@@ -181,6 +181,6 @@ router.get('/notification', getAllNotification)
 router.get('/notification/:email', singleNotificationByEmail)
 router.get('/notification/:id', singleNotification)
 router.delete('/notification/:id', deleteNotification)
-router.put('/notification/:id', updateNotification)
+router.put('/notification/:email', updateNotification)
 
 module.exports = router

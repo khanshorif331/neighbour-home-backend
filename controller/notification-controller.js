@@ -64,14 +64,17 @@ const deleteNotification = async (req, res) => {
 // updating a single notification data $set needs to be update
 const updateNotification = async (req, res) => {
 	try {
-		const id = req.params.id
-		const notification = req.body
-		await Notification.updateOne(
-			{ _id: id },
+		const email = req.params.email
+
+		await Notification.updateMany(
+			{ user_email: email },
 			{
-				$set: notification,
-			}
+				// status: 'seen',
+				$set: { status: 'seen' },
+			},
+			{ multi: true }
 		)
+
 		res.status(200).json({
 			message: 'Notification data was updated successfully',
 		})
