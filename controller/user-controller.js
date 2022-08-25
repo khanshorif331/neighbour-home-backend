@@ -148,6 +148,8 @@ const singleUserByEmail = async (req, res) => {
 	}
 }
 
+
+
 module.exports = {
 	// postUser,
 	getAllUser,

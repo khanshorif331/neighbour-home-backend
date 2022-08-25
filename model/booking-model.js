@@ -11,8 +11,8 @@ const bookingSchema = new mongoose.Schema({
 	engineer: {
 		gender: String,
 		name: String,
-		picture: String,
-		profession: String,
+		photo: String,
+		role: String,
 		email: String,
 		phone: String,
 		_id: String,
