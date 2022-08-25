@@ -48,12 +48,10 @@ const getBookingDataByEmail = async (req, res) => {
 		res.status(500).json({ message: 'There was a server side error!' })
 	}
 }
-// getting all booking data
+// getting all booking data for engineer
 const getBookingDataByEngineerEmail = async (req, res) => {
 	try {
-		// const id= req.params.id;
-		// console.log(id);
-		const email = req.query.email
+		const email = req.params.email
 		// console.log(email)
 		const data = await Booking.find({ 'engineer.email': email })
 		// console.log(data)
