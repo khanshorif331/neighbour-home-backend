@@ -18,6 +18,8 @@ const bookingSchema = new mongoose.Schema({
 		_id: String,
 	},
 	status: String,
+	price: String,
+	description: String,
 })
 
 const booking = mongoose.model('booking', bookingSchema)
