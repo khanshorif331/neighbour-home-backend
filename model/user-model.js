@@ -55,6 +55,13 @@ const userSchema = new mongoose.Schema({
 		type: Boolean,
 	},
 	userInfo: String,
+	educationLVL: String,
+	degree: String,
+	institution: String,
+	passingYear: Number,
+	currentCountry: String,
+	currentAddress: String,
+	currentZip: Number,
 })
 
 const user = mongoose.model('user', userSchema)

@@ -144,7 +144,9 @@ const singleUserByEmail = async (req, res) => {
 		const data = await User.findOne({ email: email })
 		res.status(200).json(data)
 	} catch (err) {
-		res.status(500).json({ message: 'There was a server side error!' })
+		res.status(500).json({
+			message: 'There was a server side error from email!',
+		})
 	}
 }
 
