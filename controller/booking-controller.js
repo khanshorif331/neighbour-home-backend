@@ -51,7 +51,7 @@ const getBookingDataByEmail = async (req, res) => {
 // getting all booking data for engineer
 const getBookingDataByEngineerEmail = async (req, res) => {
 	try {
-		const email = req.params.email
+		const email = req.query.email
 		// console.log(email)
 		const data = await Booking.find({ 'engineer.email': email })
 		// console.log(data)
