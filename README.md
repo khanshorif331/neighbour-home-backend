@@ -1,5 +1,12 @@
 ### Name: NeighborHome ( management portal type website )
 
+## Technologies Used In this Project
+
+* Node
+* Express 
+* Mongodb
+* Mongoose
+
 Goal: 
 
 Our most important target is E-builder. We want to provide a technology-based commercial system.  Building Management Systems Play an important role in the current instructional system. The authorities nowadays are using this amazing Management System to manage and supply a better experience by a software system to both ( Buyers and sellers ) effectively.  That's our goal.
